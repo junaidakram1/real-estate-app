@@ -29,7 +29,6 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   const { username, password } = req.body;
-  console.log(req.body);
 
   try {
     const user = await prisma.user.findUnique({
@@ -43,7 +42,7 @@ export const login = async (req, res) => {
     if (!isPasswordValid)
       return res.status(400).json({ message: "Invalid Credentials!" });
 
-    const age = 1000 * 60 * 60 * 24 * 7; // token expires in age
+    const age = 1000 * 60 * 60 * 24 * 7;
 
     const token = jwt.sign(
       {

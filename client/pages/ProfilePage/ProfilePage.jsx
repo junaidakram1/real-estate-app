@@ -3,6 +3,15 @@ import List from "../../components/List/List";
 import "./ProfilePage.scss";
 
 function ProfilePage() {
+  const handleLogout = async () => {
+    try {
+      await apiRequest.post("/auth/logout");
+
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   return (
     <div className="profilePage">
       <div className="details">
@@ -24,7 +33,8 @@ function ProfilePage() {
             </span>
             <span>
               E-mail: <b>john@gmail.com</b>
-            </span>
+            </span>{" "}
+            <button onClick={handleLogout}>Logout</button>
           </div>
           <div className="title">
             <h1>My List</h1>

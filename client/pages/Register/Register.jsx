@@ -6,9 +6,9 @@ const Register = () => {
       <div className="wrapper">
         <h1>Create an Account</h1>
         <form action="">
-          <input type="email" />
-          <input type="text" />
-          <input type="password" />
+          <input name="email" type="text" placeholder="Email" />
+          <input name="username" type="text" placeholder="Username" />
+          <input name="password" type="password" placeholder="Password" />
           <button>Register</button>{" "}
         </form>
       </div>{" "}
