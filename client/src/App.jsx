@@ -5,6 +5,7 @@ import SingePage from "../pages/SingePage/SingePage";
 import Layout from "../pages/layout/Layout";
 import ProfilePage from "../pages/ProfilePage/ProfilePage";
 import Register from "../pages/Register/Register";
+import Login from "../pages/Login/Login";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +32,10 @@ function App() {
         {
           path: "/register",
           element: <Register />,
+        },
+        {
+          path: "/login",
+          element: <Login />,
         },
       ],
     },

@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./login.scss";
+import "./Login.scss";
 import { Link, useNavigate } from "react-router-dom";
-import apiRequest from "../../lib/apiRequest";
+import apiRequest from "../../src/lib/apiRequest";
 
 function Login() {
   const [error, setError] = useState("");
