@@ -26,6 +26,7 @@ function App() {
         {
           path: "/:id",
           element: <SingePage />,
+          loader: singePageLoader,
         },
         {
           path: "/profile",
