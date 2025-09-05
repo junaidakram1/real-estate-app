@@ -1,5 +1,5 @@
-import "./SinglePage.scss";
-import Slider from "../../components/slider/Slider";
+import "./SingePage.scss";
+import Slider from "../../components/Slider/Slider";
 import Map from "../../components/Map/Map";
 import { useNavigate, useLoaderData } from "react-router-dom";
 import DOMPurify from "dompurify";

@@ -8,6 +8,7 @@ import ProfileUpdatePage from "../pages/ProfileUpdatePage/ProfileUpdatePage";
 import NewPostPage from "../pages/NewPostPage/NewPostPage";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import { singlePageLoader } from "./lib/loaders";
 
 function App() {
   const router = createBrowserRouter([
@@ -26,7 +27,7 @@ function App() {
         {
           path: "/:id",
           element: <SingePage />,
-          loader: singePageLoader,
+          loader: singlePageLoader,
         },
         {
           path: "/profile",
