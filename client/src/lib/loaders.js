@@ -6,11 +6,17 @@ export const singlePageLoader = async ({ request, params }) => {
 };
 
 export const listPageLoader = async ({ request }) => {
-  const query = request.url.split("?")[1];
-  const postResponse = await apiRequest("/posts?" + query);
-  return {
-    postResponse,
-  };
+  const url = new URL(request.url);
+  const params = new URLSearchParams(url.search);
+
+  for (const [key, value] of params.entries()) {
+    if (!value || value === "undefined" || value === "null") {
+      params.delete(key);
+    }
+  }
+
+  const postResponse = await apiRequest("/posts?" + params.toString());
+  return { postResponse };
 };
 
 export const profilePageLoader = async () => {

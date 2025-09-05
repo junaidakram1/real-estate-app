@@ -5,20 +5,28 @@ export const getPosts = async (req, res) => {
   const query = req.query;
 
   try {
+    const filters = {
+      city: query.city || undefined,
+      type: query.type || undefined,
+      property: query.property || undefined,
+      bedroom: query.bedroom ? parseInt(query.bedroom) : undefined,
+    };
+
+    if (query.minPrice || query.maxPrice) {
+      filters.price = {};
+      if (query.minPrice && query.minPrice !== "0") {
+        filters.price.gte = parseInt(query.minPrice);
+      }
+      if (query.maxPrice && query.maxPrice !== "0") {
+        filters.price.lte = parseInt(query.maxPrice);
+      }
+    }
+
     const posts = await prisma.post.findMany({
-      where: {
-        city: query.city || undefined,
-        type: query.type || undefined,
-        property: query.property || undefined,
-        bedroom: parseInt(query.bedroom) || undefined,
-        price: {
-          gte: parseInt(query.minPrice) || undefined,
-          lte: parseInt(query.maxPrice) || undefined,
-        },
-      },
+      where: filters,
     });
 
-    res.status(200).json(posts);
+    res.status(200).json(posts ?? []);
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Failed to get posts" });
