@@ -22,7 +22,7 @@ export const listPageLoader = async ({ request }) => {
 export const profilePageLoader = async () => {
   const [postResponse, chatResponse] = await Promise.all([
     apiRequest("/users/profilePosts"),
-    apiRequest("/chats"),
+    // apiRequest("/chats"),
   ]);
 
   return {
