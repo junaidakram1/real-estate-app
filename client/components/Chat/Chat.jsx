@@ -1,9 +1,9 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import "./Chat.scss";
 import { AuthContext } from "../../src/context/AuthContext";
 import apiRequest from "../../src/lib/apiRequest";
 import { SocketContext } from "../../src/context/SocketContext";
-
+import { useNotificationStore } from "../../src/lib/notificationStore";
 import { format } from "timeago.js";
 
 function Chat({ chats }) {
