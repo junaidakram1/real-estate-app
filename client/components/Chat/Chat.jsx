@@ -116,7 +116,6 @@ function Chat() {
             <textarea></textarea>
             <button>Send</button>
           </div>
-          <div>hello</div>
         </div>
       )}
     </div>
