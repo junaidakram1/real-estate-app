@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useRef } from "react";
 import "./Chat.scss";
 import { AuthContext } from "../../src/context/AuthContext";
 import apiRequest from "../../src/lib/apiRequest";
@@ -10,6 +10,14 @@ function Chat({ chats }) {
   const [chat, setChat] = useState(null);
   const { currentUser } = useContext(AuthContext);
   const { socket } = useContext(SocketContext);
+
+  const messageEndRef = useRef();
+
+  const decrease = useNotificationStore((state) => state.decrease);
+
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [chat]);
 
   const handleOpenChat = async (id, receiver) => {
     try {
