@@ -73,9 +73,9 @@
     button {
       border: none;
       cursor: pointer;
-      background-color: #fece51;
+      background-color: teal;
       flex: 1;
-      padding: 20px;
+      padding: 18px;
 
       @include responsive.sm {
         padding: 10px;

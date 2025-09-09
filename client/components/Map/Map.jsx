@@ -4,9 +4,14 @@ import "./Map.scss";
 import Pin from "../Pins/Pin";
 
 function Map({ items }) {
+  const firstItem = items[0];
+  const latitude = firstItem ? parseFloat(firstItem.latitude) : 30.0;
+  const longitude = firstItem ? parseFloat(firstItem.longitude) : 70.0;
+
+  const position = [latitude, longitude];
   return (
     <MapContainer
-      center={[52.4797, -1.90269]}
+      center={position}
       zoom={7}
       scrollWheelZoom={false}
       className="map"
